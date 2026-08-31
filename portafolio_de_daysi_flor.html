@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Daysi Flor Garcia Zapana</title>
+    <style>
+        /* === VARIABLES DE COLOR Y ESTILO === */
+        :root {
+            --color-primary: #AEC6CF; /* Azul pastel */
+            --color-secondary: #FDFD96; /* Amarillo pastel */
+            --color-dark: #2C3E50; /* Gris oscuro para textos */
+            --color-light: #F8F9FA; /* Fondo claro */
+            --color-white: #FFFFFF;
+            
+            --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            --transition-smooth: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* === RESET === */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: var(--font-main);
+            color: var(--color-dark);
+            background-color: var(--color-light);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* === TIPOGRAFÍA === */
+        h1, h2, h3 {
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+
+        h2 {
+            font-size: 2.2rem;
+            text-align: center;
+            color: var(--color-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 4px;
+            background-color: var(--color-primary);
+            margin: 10px auto 0;
+        }
+
+        /* === NAVEGACIÓN (FLAT DESIGN) === */
+        header {
+            background-color: var(--color-primary);
+            padding: 1rem 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 2px 0px rgba(0,0,0,0.05); /* Sombra plana (opcional en flat, pero ayuda a separar) */
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 900;
+            color: var(--color-dark);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* Menú de Escritorio */
+        .nav-menu {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-menu li a {
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            transition: var(--transition-smooth);
+            border-radius: 4px;
+        }
+
+        .nav-menu li a:hover {
+            background-color: var(--color-secondary);
+            color: var(--color-dark);
+        }
+
+        /* Botón Hamburguesa */
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            border: none;
+            background: none;
+            padding: 0.5rem;
+            z-index: 1001;
+        }
+
+        .bar {
+            display: block;
+            width: 25px;
+            height: 3px;
+            margin: 5px auto;
+            background-color: var(--color-dark);
+            transition: var(--transition-smooth);
+        }
+
+        /* === SECCIONES GLOBALES === */
+        section {
+            padding: 6rem 5% 4rem;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* === HERO SECTION === */
+        #inicio {
+            background-color: var(--color-secondary);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding-top: 8rem;
+        }
+
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        .avatar {
+            width: 200px;
+            height: 200px;
+            background-color: var(--color-white);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 8px solid var(--color-primary);
+            overflow: hidden;
+            font-size: 0.9rem;
+            color: #888;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            color: var(--color-dark);
+            margin-bottom: 0.5rem;
+        }
+
+        .hero-text h3 {
+            font-size: 1.5rem;
+            color: #555;
+            font-weight: 400;
+            background-color: var(--color-white);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+        }
+
+        /* === SOBRE MÍ === */
+        #sobre-mi {
+            background-color: var(--color-white);
+        }
+
+        .about-text {
+            text-align: center;
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        /* === EXPERIENCIA & EDUCACIÓN (CARDS FLAT) === */
+        #experiencia {
+            background-color: var(--color-light);
+        }
+
+        #educacion {
+            background-color: var(--color-white);
+        }
+
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .card {
+            background-color: var(--color-white);
+            border: 2px solid var(--color-primary);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: var(--transition-smooth);
+        }
+
+        /* En la sección de experiencia, fondo blanco, borde azul. Al pasar el mouse, fondo amarillo pastel */
+        #experiencia .card:hover {
+            background-color: var(--color-secondary);
+            border-color: var(--color-secondary);
+            transform: translateY(-5px); /* Pequeño salto flat */
+        }
+
+        /* En educación, fondo azul pastel */
+        #educacion .card {
+            background-color: var(--color-primary);
+            border: none;
+        }
+
+        .card h3 {
+            color: var(--color-dark);
+            font-size: 1.4rem;
+        }
+
+        .card .company, .card .institution {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 1rem;
+            display: block;
+        }
+
+        .card ul {
+            margin-left: 1.2rem;
+            list-style-type: square;
+        }
+
+        .card ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        /* === HABILIDADES === */
+        #habilidades {
+            background-color: var(--color-secondary);
+        }
+
+        .skills-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .skill-badge {
+            background-color: var(--color-primary);
+            color: var(--color-dark);
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition-smooth);
+        }
+
+        .skill-badge:hover {
+            background-color: var(--color-white);
+            transform: scale(1.05);
+        }
+
+        /* === CONTACTO === */
+        #contacto {
+            background-color: var(--color-primary);
+            text-align: center;
+        }
+
+        #contacto h2::after {
+            background-color: var(--color-white);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            align-items: center;
+            font-size: 1.2rem;
+        }
+
+        .contact-item {
+            background-color: var(--color-white);
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            width: 100%;
+            max-width: 400px;
+            font-weight: 600;
+        }
+
+        /* === FOOTER === */
+        footer {
+            background-color: var(--color-dark);
+            color: var(--color-white);
+            text-align: center;
+            padding: 1.5rem;
+        }
+
+        /* === MEDIA QUERIES (RESPONSIVIDAD) === */
+        @media (max-width: 768px) {
+            .hamburger {
+                display: block;
+            }
+
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                transform: translateY(-8px) rotate(-45deg);
+            }
+
+            .nav-menu {
+                position: fixed;
+                left: -100%;
+                top: 0; /* Para cubrir toda la pantalla */
+                flex-direction: column;
+                background-color: var(--color-primary);
+                width: 100%;
+                height: 100vh; /* Ocupa toda la altura */
+                text-align: center;
+                transition: var(--transition-smooth);
+                justify-content: center;
+                gap: 2rem;
+                padding: 0;
+            }
+
+            .nav-menu.active {
+                left: 0;
+            }
+
+            .nav-menu li {
+                margin: 0;
+            }
+
+            .nav-menu li a {
+                font-size: 1.5rem;
+                display: block;
+                padding: 1rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 4rem 5% 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Menú de Navegación -->
+    <header>
+        <div class="logo">Daysi Flor</div>
+        <ul class="nav-menu">
+            <li><a href="#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="#sobre-mi" class="nav-link">Sobre Mí</a></li>
+            <li><a href="#experiencia" class="nav-link">Experiencia</a></li>
+            <li><a href="#educacion" class="nav-link">Educación</a></li>
+            <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+            <li><a href="#contacto" class="nav-link">Contacto</a></li>
+        </ul>
+        <button class="hamburger" aria-label="Abrir menú">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </button>
+    </header>
+
+    <!-- Sección Inicio -->
+    <section id="inicio">
+        <div class="container hero-content">
+            <div class="avatar">
+                <!-- Se ha dejado un texto alternativo estético simulando la imagen solicitada -->
+                <span>[Imagen de Daysi]</span>
+            </div>
+            <div class="hero-text">
+                <h1>DAYSI FLOR GARCIA ZAPANA</h1>
+                <h3>Bachiller en Marketing</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Sobre Mí -->
+    <section id="sobre-mi">
+        <div class="container">
+            <h2>Sobre Mí</h2>
+            <p class="about-text">
+                Soy una persona proactiva, organizada y responsable, con buenas relaciones interpersonales. Siempre tengo la mejor disposición para la realización de mis labores. Siempre con la meta de seguir aprendiendo.
+            </p>
+        </div>
+    </section>
+
+    <!-- Sección Experiencia -->
+    <section id="experiencia">
+        <div class="container">
+            <h2>Experiencia Laboral</h2>
+            <div class="grid-container">
+                <!-- Tarjeta 1 -->
+                <div class="card">
+                    <h3>Atención al cliente</h3>
+                    <span class="company">Grupo Noral | 2019, 2021, 2022 y 2023</span>
+                    <ul>
+                        <li>Recepción de clientes.</li>
+                        <li>Manejo de boleta manual y electrónica.</li>
+                        <li>Supervisión y capacitación de nuevos colaboradores.</li>
+                    </ul>
+                </div>
+                <!-- Tarjeta 2 -->
+                <div class="card">
+                    <h3>Vendedora en ferias escolares</h3>
+                    <span class="company">Grupo Noral | 2019, 2022 y 2023</span>
+                    <ul>
+                        <li>Recibimiento y entrega de mercadería.</li>
+                        <li>Supervisión de nuevos colaboradores así como su capacitación.</li>
+                    </ul>
+                </div>
+                <!-- Tarjeta 3 -->
+                <div class="card">
+                    <h3>Asistente de almacén</h3>
+                    <span class="company">Grupo Noral | 2020</span>
+                    <ul>
+                        <li>Entradas y salidas de almacén.</li>
+                        <li>Recibimiento de mercadería.</li>
+                        <li>Comunicación a tienda de la cantidad de la mercadería y recepción de pedidos.</li>
+                        <li>Informe de salidas y entradas a almacén.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Educación -->
+    <section id="educacion">
+        <div class="container">
+            <h2>Educación</h2>
+            <div class="grid-container">
+                <div class="card">
+                    <h3>Universidad Nacional de San Agustín</h3>
+                    <span class="institution">Bachiller en Marketing</span>
+                    <p>Estudios universitarios completados satisfactoriamente.</p>
+                </div>
+                <div class="card">
+                    <h3>Colegio Parroquial "La Recoleta"</h3>
+                    <span class="institution">Educación Secundaria</span>
+                    <p>Graduada de la secundaria. Secundaria completa.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Habilidades -->
+    <section id="habilidades">
+        <div class="container">
+            <h2>Habilidades</h2>
+            <div class="skills-container">
+                <div class="skill-badge">Proactiva</div>
+                <div class="skill-badge">Trabajo en equipo</div>
+                <div class="skill-badge">Comunicativa</div>
+                <div class="skill-badge">Organizada</div>
+                <div class="skill-badge">Responsable</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto -->
+    <section id="contacto">
+        <div class="container">
+            <h2>Contacto</h2>
+            <div class="contact-info">
+                <div class="contact-item">
+                    📱 Celular: 982072582
+                </div>
+                <div class="contact-item">
+                    ✉️ Correo: daysigar2000@gmail.com
+                </div>
+                <div class="contact-item">
+                    📍 Dirección: Urb. San Doria A - 14, Cayma
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Daysi Flor Garcia Zapana. Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- JavaScript para interactividad -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const hamburger = document.querySelector('.hamburger');
+            const navMenu = document.querySelector('.nav-menu');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            // Función para abrir/cerrar menú
+            const toggleMenu = () => {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+                
+                // Prevenir scroll cuando el menú está abierto
+                if (navMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = 'auto';
+                }
+            };
+
+            // Evento click en botón hamburguesa
+            hamburger.addEventListener('click', toggleMenu);
+
+            // Cerrar menú al hacer clic en un enlace (ideal para móviles)
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navMenu.classList.contains('active')) {
+                        toggleMenu();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
