@@ -170,6 +170,12 @@
             color: #888;
         }
 
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
         .hero-text h1 {
             font-size: 3.5rem;
             color: var(--color-dark);
@@ -398,8 +404,7 @@
     <section id="inicio">
         <div class="container hero-content">
             <div class="avatar">
-                <!-- Se ha dejado un texto alternativo estético simulando la imagen solicitada -->
-                <span>[Imagen de Daysi]</span>
+                <img src="https://raw.githubusercontent.com/daygz2000-gz/CV-DAYSI-G/main/image.png" alt="Foto de perfil de Daysi Flor">
             </div>
             <div class="hero-text">
                 <h1>DAYSI FLOR GARCIA ZAPANA</h1>
@@ -468,9 +473,9 @@
                     <p>Estudios universitarios completados satisfactoriamente.</p>
                 </div>
                 <div class="card">
-                    <h3>Colegio Parroquial "La Recoleta"</h3>
-                    <span class="institution">Educación Secundaria</span>
-                    <p>Graduada de la secundaria. Secundaria completa.</p>
+                    <h3>Infounsa</h3>
+                    <span class="institution">Especialización en Diseño Gráfico</span>
+                    <p>Graduada en diseño gráfico.</p>
                 </div>
             </div>
         </div>
@@ -490,19 +495,101 @@
         </div>
     </section>
 
-    <!-- Sección Contacto -->
+    <!-- Sección Contacto con Formulario Integrado -->
     <section id="contacto">
         <div class="container">
-            <h2>Contacto</h2>
-            <div class="contact-info">
-                <div class="contact-item">
-                    📱 Celular: 982072582
+            <h2>Contáctanos</h2>
+            <p style="text-align: center; font-size: 1.2rem; margin-bottom: 2rem; color: var(--color-white);">Hagamos crecer tus ventas juntos.</p>
+            
+            <div class="contact-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; align-items: start; text-align: left;">
+                
+                <!-- Área Izquierda: Botón WhatsApp -->
+                <div class="contact-left" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <a href="https://wa.me/51982072582" target="_blank" rel="noopener noreferrer" 
+                       style="display: flex; align-items: center; gap: 1rem; background-color: var(--color-white); padding: 1.5rem; border-radius: 8px; border: 2px solid transparent; transition: var(--transition-smooth); color: var(--color-dark); text-decoration: none;"
+                       onmouseover="this.style.borderColor='var(--color-secondary)'; this.style.transform='translateY(-3px)';" 
+                       onmouseout="this.style.borderColor='transparent'; this.style.transform='translateY(0)';">
+                        
+                        <div style="background-color: #25D366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <svg style="width: 30px; height: 30px; color: white;" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <p style="font-size: 0.9rem; color: #666; margin-bottom: 0.2rem;">Asesoría directa</p>
+                            <p style="font-size: 1.1rem; font-weight: bold; margin: 0;">Escríbenos por WhatsApp</p>
+                        </div>
+                    </a>
                 </div>
-                <div class="contact-item">
-                    ✉️ Correo: daysigar2000@gmail.com
-                </div>
-                <div class="contact-item">
-                    📍 Dirección: Urb. San Doria A - 14, Cayma
+
+                <!-- Área Derecha: Formulario -->
+                <div class="contact-form-container" style="background-color: var(--color-white); padding: 2rem; border-radius: 8px; position: relative; overflow: hidden;">
+                    
+                    <!-- Alerta de Éxito -->
+                    <div id="successAlert" style="display: none; position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: var(--color-white); z-index: 10; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 2rem;">
+                        <div style="width: 60px; height: 60px; background-color: var(--color-primary); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem;">
+                            <svg style="width: 30px; height: 30px; color: var(--color-dark);" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                        </div>
+                        <h3 style="margin-bottom: 0.5rem; color: var(--color-dark);">¡Mensaje Enviado!</h3>
+                        <p style="margin-bottom: 1.5rem; color: #555;">Nos pondremos en contacto contigo muy pronto para hacer crecer tus ventas.</p>
+                        <button type="button" id="closeAlertBtn" style="padding: 0.8rem 1.5rem; background-color: var(--color-light); border: 2px solid var(--color-primary); color: var(--color-dark); font-weight: bold; border-radius: 50px; cursor: pointer; transition: var(--transition-smooth);"
+                                onmouseover="this.style.backgroundColor='var(--color-primary)';" 
+                                onmouseout="this.style.backgroundColor='var(--color-light)';">
+                            Enviar otro mensaje
+                        </button>
+                    </div>
+
+                    <form id="contactForm" style="display: flex; flex-direction: column; gap: 1.2rem;">
+                        <div>
+                            <label for="nombre" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-dark);">Nombre Completo</label>
+                            <input type="text" id="nombre" name="nombre" required placeholder="Ej. Juan Pérez"
+                                style="width: 100%; padding: 1rem; border: 2px solid var(--color-light); border-radius: 4px; background-color: var(--color-light); font-family: inherit; font-size: 1rem; transition: var(--transition-smooth); outline: none;"
+                                onfocus="this.style.borderColor='var(--color-primary)'; this.style.backgroundColor='#fff';" 
+                                onblur="this.style.borderColor='var(--color-light)'; this.style.backgroundColor='var(--color-light)';">
+                        </div>
+
+                        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1.2rem;">
+                            <div>
+                                <label for="telefono" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-dark);">Teléfono</label>
+                                <input type="tel" id="telefono" name="telefono" required placeholder="Ej. +51 982 072 582"
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--color-light); border-radius: 4px; background-color: var(--color-light); font-family: inherit; font-size: 1rem; transition: var(--transition-smooth); outline: none;"
+                                    onfocus="this.style.borderColor='var(--color-primary)'; this.style.backgroundColor='#fff';" 
+                                    onblur="this.style.borderColor='var(--color-light)'; this.style.backgroundColor='var(--color-light)';">
+                            </div>
+                            <div>
+                                <label for="correoelectronico" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-dark);">Correo Electrónico</label>
+                                <input type="email" id="correoelectronico" name="correoelectronico" required placeholder="ejemplo@correo.com"
+                                    style="width: 100%; padding: 1rem; border: 2px solid var(--color-light); border-radius: 4px; background-color: var(--color-light); font-family: inherit; font-size: 1rem; transition: var(--transition-smooth); outline: none;"
+                                    onfocus="this.style.borderColor='var(--color-primary)'; this.style.backgroundColor='#fff';" 
+                                    onblur="this.style.borderColor='var(--color-light)'; this.style.backgroundColor='var(--color-light)';">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label for="mensaje" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-dark);">Mensaje</label>
+                            <textarea id="mensaje" name="mensaje" required rows="3" placeholder="¿Cómo podemos ayudarte a aumentar tus ventas?"
+                                style="width: 100%; padding: 1rem; border: 2px solid var(--color-light); border-radius: 4px; background-color: var(--color-light); font-family: inherit; font-size: 1rem; resize: vertical; transition: var(--transition-smooth); outline: none;"
+                                onfocus="this.style.borderColor='var(--color-primary)'; this.style.backgroundColor='#fff';" 
+                                onblur="this.style.borderColor='var(--color-light)'; this.style.backgroundColor='var(--color-light)';"></textarea>
+                        </div>
+
+                        <div>
+                            <label for="tipodenegocio" style="display: block; font-weight: 600; margin-bottom: 0.5rem; color: var(--color-dark);">Tipo de Negocio</label>
+                            <input type="text" id="tipodenegocio" name="tipodenegocio" required placeholder="Ej. Tienda online, Restaurante, etc."
+                                style="width: 100%; padding: 1rem; border: 2px solid var(--color-light); border-radius: 4px; background-color: var(--color-light); font-family: inherit; font-size: 1rem; transition: var(--transition-smooth); outline: none;"
+                                onfocus="this.style.borderColor='var(--color-primary)'; this.style.backgroundColor='#fff';" 
+                                onblur="this.style.borderColor='var(--color-light)'; this.style.backgroundColor='var(--color-light)';">
+                        </div>
+
+                        <button type="submit" id="submitBtn" 
+                            style="width: 100%; background-color: var(--color-secondary); color: var(--color-dark); font-weight: bold; font-size: 1.1rem; padding: 1rem; border: none; border-radius: 4px; cursor: pointer; transition: var(--transition-smooth); display: flex; justify-content: center; align-items: center; gap: 0.5rem; margin-top: 1rem;"
+                            onmouseover="this.style.transform='translateY(-2px)';" 
+                            onmouseout="this.style.transform='translateY(0)';">
+                            <span>Enviar Mensaje</span>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -544,6 +631,58 @@
                     }
                 });
             });
+
+            /* Lógica del Formulario de Contacto */
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const btnText = submitBtn.querySelector('span');
+            const alertBox = document.getElementById('successAlert');
+            const closeAlertBtn = document.getElementById('closeAlertBtn');
+
+            const GOOGLE_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzGpLkVPJtk6rarfKEpFHOjCYffcOzsWp6AopsuRqvs5iy52ukUcTqqk2t7Hv6SEMkJ/exec";
+
+            if(form) {
+                form.addEventListener('submit', async function(e) {
+                    e.preventDefault();
+
+                    // Guardar texto original y cambiar estado del botón
+                    const originalText = btnText.innerText;
+                    btnText.innerText = 'Enviando...';
+                    submitBtn.disabled = true;
+                    submitBtn.style.opacity = '0.7';
+                    submitBtn.style.cursor = 'not-allowed';
+
+                    // Crear FormData con los campos del formulario
+                    const formData = new FormData(form);
+
+                    try {
+                        // Enviar datos usando fetch (POST)
+                        const response = await fetch(GOOGLE_SCRIPT_URL, {
+                            method: 'POST',
+                            body: formData,
+                        });
+
+                        // Éxito: Mostrar alerta y limpiar formulario
+                        alertBox.style.display = 'flex';
+                        form.reset();
+
+                    } catch (error) {
+                        console.error('Error al enviar el formulario:', error);
+                        alert('Hubo un error al enviar el mensaje. Por favor, verifica tu conexión y vuelve a intentarlo.');
+                    } finally {
+                        // Devolver el botón a su estado normal
+                        btnText.innerText = originalText;
+                        submitBtn.disabled = false;
+                        submitBtn.style.opacity = '1';
+                        submitBtn.style.cursor = 'pointer';
+                    }
+                });
+
+                // Botón para cerrar la alerta de éxito
+                closeAlertBtn.addEventListener('click', () => {
+                    alertBox.style.display = 'none';
+                });
+            }
         });
     </script>
 </body>
